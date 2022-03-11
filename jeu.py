@@ -60,8 +60,15 @@ class Jeux:
         for e in joueurs:
             if e.is_alive():
                 print("C'est au tour de", e.name, "de voter")
-                j = input("Choix : ")
+                valid = False
+                while not valid:
+                    valid = False
+                    j = input("Choix : ")
+                    for e in joueurs:
+                        if e.is_alive() and e.name == j:
+                            valid = True
                 votes[j] = votes[j] + 1
+
         max = 0
         max_n = ""
         for e in votes:
