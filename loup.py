@@ -16,15 +16,15 @@ class Loup(Player):
             if (joueur not in self.loups):
                 print(joueur.name, end=" ")
         print("")
-		valid = False
-		while not valid:
-			valid = False
-			nom = input("Qui souhaitez vous tuer ? : ")
-			for joueur in self.joueurs:
-				if joueur.name == nom:
-					valid = True
+        valid = False
+        while not valid:
+            valid = False
+            nom = input("Qui souhaitez vous tuer ? : ")
+            for joueur in self.joueurs:
+                if joueur.name == nom:
+                    valid = True
         print("-" * 40)
-		self.v = True
+        self.v = True
         return nom
 
     def action(self):

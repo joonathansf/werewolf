@@ -20,15 +20,15 @@ class Chasseur(Player):
             if (joueur.name != self.name):
                 print(joueur.name, end=" ")
         print("")
-        nom = input("Qui souhaitez vous tuer ? : ")
-		valid = False
-		while not valid:
-			valid = False
-			for joueur in self.joueurs:
-				if (joueur.name == nom):
-					joueur.kill()
-					joueur.present()
-					valid = True
+        valid = False
+        while not valid:
+            valid = False
+            nom = input("Qui souhaitez vous tuer ? : ")
+            for joueur in self.joueurs:
+                if (joueur.name == nom):
+                    joueur.kill()
+                    joueur.present()
+                    valid = True
 		
 
     def reveil(self):
@@ -42,4 +42,5 @@ class Chasseur(Player):
         if self.gunLoad:
             self.killPlayer()
             self.gunLoad = False
-        self.joueurs.remove(self)
+        if self in self.joueurs:
+            self.joueurs.remove(self)
