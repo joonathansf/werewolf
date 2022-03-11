@@ -35,7 +35,7 @@ class Jeux:
                 joueur.reveil()
             self.vote(joueurs, loups)
         print("Fin de partie")
-        if self.alive(joueurs) <= (self.alive(loups) * 2):
+        if (self.alive(joueurs) <= (self.alive(loups) * 2)) and self.alive(loups) > 0:
             print("Victoire des loups !")
         else:
             print("Victoire des villageois !")
@@ -48,7 +48,7 @@ class Jeux:
         return i
 
     def vote(self, joueurs, loups):
-        if self.alive(joueurs) <= (self.alive(loups) * 2):
+        if (self.alive(joueurs) <= (self.alive(loups) * 2)) or self.alive(loups) <= 0:
             return
         votes = {}
         print("-" * 40)
