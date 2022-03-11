@@ -13,10 +13,14 @@ class Voyante(Player):
             if (joueur.name != self.name):
                 print(joueur.name, end=" ")
         print("")
-        nom = input("Quel rôle souhaitez vous voir ? : ")
-        for joueur in self.joueurs:
-            if (joueur.name == nom):
-                print(joueur.name, "est", type(joueur).__name__)
+		valid = False
+		while not valid:
+			valid = False
+			nom = input("Quel rôle souhaitez vous voir ? : ")
+			for joueur in self.joueurs:
+				if (joueur.name == nom):
+					print(joueur.name, "est", type(joueur).__name__)
+					valid = True
         print("-" * 40)
 
     def kill(self):

@@ -21,10 +21,15 @@ class Chasseur(Player):
                 print(joueur.name, end=" ")
         print("")
         nom = input("Qui souhaitez vous tuer ? : ")
-        for joueur in self.joueurs:
-            if (joueur.name == nom):
-                joueur.kill()
-                joueur.present()
+		valid = False
+		while not valid:
+			valid = False
+			for joueur in self.joueurs:
+				if (joueur.name == nom):
+					joueur.kill()
+					joueur.present()
+					valid = True
+		
 
     def reveil(self):
         if self.alive == False:
