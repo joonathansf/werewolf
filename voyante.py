@@ -32,4 +32,5 @@ class Voyante(Player):
 
     def present(self):
         print(self.name, "est mort et son rôle était :", __class__.__name__)
-        self.joueurs.remove(self)
+        if self in self.joueurs:
+            self.joueurs.remove(self)
